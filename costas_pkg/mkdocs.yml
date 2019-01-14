@@ -1,0 +1,8 @@
+site_name: Costas
+nav:
+    - Home: index.md
+    - Detection module:
+      - 'Gathering data': 'gathering.md'
+      - 'Preprocessing': 'preprocessing.md'
+      - 'Features Extraction': 'features.md'
+    - About: about.md
