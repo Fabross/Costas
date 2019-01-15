@@ -9,29 +9,6 @@ import re
 import numpy as np
 import pandas as pd
 
-
-def grades():
-    """Ask for grades to keyboard input and return a list with the keyboard input."""
-    try:
-        grades = input('Select GRADE, usage "A,B,..." with valid options A,B,C,D: ')
-        if not(set(grades.split(",")) <= {'A','B','C','D'}):
-            raise ValueError(grades)
-        return grades.split(",")
-    except ValueError:
-        print("incorrect GRADE, ingressed: ",grades)
-        raise
-        
-def mags():
-    """Ask for magnitudes to keyboard input and return a tuple."""
-    try:
-        mags = input('Select MAG, usage MAG_2,MAG_0,MAG_1,MAG_3,MAG_4 like 0,0,1,0,0 for only MAG_1 with full weight: ')
-        if (int(max(set(mags.split(",")))) > 1):
-            raise ValueError(mags)
-        return tuple(mags.split(","))
-    except ValueError:
-        print("incorrect MAG, ingressed: ",mags)
-        raise
-		
 def cut(c):
     """Cut the data by a patron defined and return a tuple.
 
@@ -89,7 +66,6 @@ def parser(data):
                 if not next_line:
                     reg, col= cut(c)
                     if flag == 0:
-                        print('cut: in: '+str(type(c))+', out:'+str(type(cut(c))))
                         df = pd.DataFrame(reg,columns=col)
                         df["RA"] = np.array(alpha)
                         df["DEC"] = np.array(gamma)
