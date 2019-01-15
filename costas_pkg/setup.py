@@ -34,7 +34,7 @@ setup(
     # For a discussion on single-sourcing the version across setup.py and the
     # project code, see
     # https://packaging.python.org/en/latest/single_source_version.html
-    version='0.0.1',  # Required
+    version='0.1.0.dev1',  # Required
 
     # This is a one-line description or tagline of what your project does. This
     # corresponds to the "Summary" metadata field:
@@ -92,7 +92,7 @@ setup(
         'Topic :: Software Development :: Build Tools',
 
         # Pick your license as you wish
-        'License :: OSI Approved :: GPL-3.0-or-later',
+        'License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)',
 
         # Specify the Python versions you support here. In particular, ensure
         # that you indicate whether you support Python 2, Python 3 or both.
@@ -126,7 +126,7 @@ setup(
     #
     # For an analysis of "install_requires" vs pip's requirements files see:
     # https://packaging.python.org/en/latest/requirements.html
-    install_requires=['matplotlib','pandas', 'numpy', 're', 'os'],  # Optional
+    install_requires=['matplotlib','pandas', 'numpy'],  # Optional
 
     # List additional groups of dependencies here (e.g. development
     # dependencies). Users will be able to install these using the "extras"
@@ -180,9 +180,9 @@ setup(
     # maintainers, and where to support the project financially. The key is
     # what's used to render the link text on PyPI.
     project_urls={  # Optional
-        'Bug Reports': 'https://github.com/pypa/sampleproject/issues',
-        'Funding': 'https://donate.pypi.org',
-        'Say Thanks!': 'http://saythanks.io/to/example',
-        'Source': 'https://github.com/pypa/sampleproject/',
+        #'Bug Reports': 'https://github.com/pypa/sampleproject/issues',
+        #'Funding': 'https://donate.pypi.org',
+        #'Say Thanks!': 'http://saythanks.io/to/example',
+        'Source': 'https://github.com/csrg-utfsm/Costas',
     },
 )
