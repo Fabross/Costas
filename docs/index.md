@@ -16,3 +16,4 @@ For full documentation visit [mkdocs.org](https://mkdocs.org).
         index.md  # The documentation homepage.
         ...       # Other markdown pages, images and other files.
 
+Please see the [project license](license.md) for further details.

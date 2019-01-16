@@ -4,7 +4,7 @@ Here are found the functions that help to gather the data from the source.
 
 ## cut(data)
 
-Cut the data by a patron defined and return a tuple.
+Cut the data by a pattern defined and return a tuple.
 ```python
 Keyword arguments:
     data -- the data to cut, list

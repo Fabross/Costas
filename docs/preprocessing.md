@@ -18,7 +18,7 @@ Keyword argument:
     data -- the data to analyze, np.narray
 ```
 
-## preprocessing(data,aperture)
+## preprocessing(data, aperture)
 
 Preprocess data for an aperture and return a tuple.
 ```python
@@ -27,7 +27,7 @@ Keyword arguments:
     aperture -- the aperture index, str
 ```
 
-## grade_filter(df,grades,mags)
+## grade_filter(df, grades, mags)
 
 Filter the data to preprocess and return a tuple.
 ```python
@@ -45,7 +45,7 @@ Keyword arguments:
     tup -- tuple to sort, tuple
 ```
         
-## graph(data,path,title)
+## graph(data, path, title)
 
 Graph in a scatter type and save to a folder as title.png.
 ```python
