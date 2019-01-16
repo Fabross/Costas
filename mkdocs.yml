@@ -1,0 +1,19 @@
+site_name: Costas
+repo_url: https://github.com/csrg-utfsm/Costas
+repo_name: 'GitHub'
+site_description: 'Long period variable star study.'
+site_author: 'wow'
+copyright: 'so much copyright'
+
+nav:
+    - Home: index.md
+    - Detection module:
+      - 'Gathering data': 'gathering.md'
+      - 'Preprocessing': 'preprocessing.md'
+      - 'Features extraction': 'features.md'
+      - 'General stars classification': 'starsclass.md'
+    - Classification module:
+      - 'Cross-matching': 'crossmatching.md'
+      - 'Dimensional reduction': 'dimred.md'
+      - 'Clustering': 'clustering.md'
+    - About: about.md
