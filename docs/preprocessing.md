@@ -4,65 +4,57 @@ The sets of functions here help from the perspective of preprocessing, complemen
 
 ## high_photometric_errors(data)
 
-Delete high photometric errors in the light curve's magnitudes.
+Found high photometric errors in MER,  with \( \bar{x} \) and \( \sigma \) as mean and standard deviation of data array, respectively, based on error limit
+$$ \varepsilon_l =  \bar{x} + 3 \sigma$$
+and the condition
+$$ x_i \geq \varepsilon_l $$
 
 #### Args:
-`data(np.narray)`: The light curve's magnitudes to analyze.
+`data(np.narray)`: MERs to analyze.
 
 #### Returns:
-`np.narray`: Light curve's magnitudes with low photometric errors.
+`np.narray`: MER's index with high photometric errors.
 
 -------------
 
 ## outliers_iqr(ys)
 
-Delete atypical data.
-```python
-Keyword argument:
-    ys -- the data, np.narray
-```
+Found magnitudes out of interquartile range (iqr) based on quartile 1 and quartile 3, \( q_1 \) and \(q_3 \) respectively, with 
+$$ iqr = q_3-q_1 $$ 
+and condition
+$$ (ys > U_b)\ or \ (ys < L_b)$$
+where \(U_b = q_3+ 1.5iqr\) and \(L_b = q_1- 1.5iqr\) are the Upper bound and Lower bound, respectively.
 
-## high_photometric_errors(data)
+#### Args:
+`data(np.narray)`: MERs to analyze.
 
-Delete high photometric errors and return a np.narray.
-```python
-Keyword argument:
-    data -- the data to analyze, np.narray
-```
+#### Returns:
+`np.narray`: MER's index out of interquartile range.
+
+-------------
 
 ## preprocessing(data, aperture)
 
-Preprocess data for an aperture and return a tuple.
-```python
-Keyword arguments:
-    data -- the data to analyze, pd.DataFrame
-    aperture -- the aperture index, str
-```
+Analyze light curve's data with specific aperture, executing high_photometric_errors and outliers_iqr, filtering all the don't wanted values.
 
-## grade_filter(df, grades, mags)
+#### Args:
+`data(pd.DataFrame)`: The data to analyze, like the returning example shown in [parser(data)](datadq.md).
 
-Filter the data to preprocess and return a tuple.
-```python
-Keyword arguments:
-    df -- the data to analyze, pd.DataFrame
-    grades -- the grades to analyze, list
-    mags -- the magnitudes to analyze, tuple
-```
+`aperture(str)`: The index to analyze MAG_i, with \( i=0,1,2,3\).
 
-## Sort(tup)
+#### Returns:
+`tuple`: HJD and MAG_i values associated.
 
-Sort a tuple in descending order and return a tuple.
-```python
-Keyword arguments:
-    tup -- tuple to sort, tuple
-```
-        
-## graph(data, path, title)
+-------------
 
-Graph in a scatter type and save to a folder as title.png.
-```python
-Keyword arguments:
-    data -- the data to graph, tuple
-    path -- the path to save, str
-    title -- the graph title, str
-```
+## grade_filter(data, grades)
+
+Found and return all the values in light curve's data that has a GRADE parameter in grades set.
+
+#### Args:
+`data(pd.DataFrame)`: The data to analyze, like the returning example shown in [parser(data)](datadq.md).
+
+`grades(list of str)`: Some combination (or all) of A,B,C,D.
+
+#### Returns:
+`tuple`: Data filtered containing only values with GRADE specified in grades.

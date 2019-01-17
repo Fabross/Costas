@@ -1,3 +1,9 @@
+extra_javascript: 
+    - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML
+
+markdown_extensions:
+    - mdx_math
+
 site_name: Costas
 repo_url: https://github.com/csrg-utfsm/Costas
 repo_name: 'GitHub'
