@@ -7,12 +7,12 @@ copyright: 'so much copyright'
 
 nav:
     - Home: index.md
-    - Detection module:
-      - 'Gathering data': 'gathering.md'
+    - Detection:
+      - 'Data acquisition': 'datadq.md'
       - 'Preprocessing': 'preprocessing.md'
       - 'Features extraction': 'features.md'
       - 'General stars classification': 'starsclass.md'
-    - Classification module:
+    - Classification:
       - 'Cross-matching': 'crossmatching.md'
       - 'Dimensional reduction': 'dimred.md'
       - 'Clustering': 'clustering.md'

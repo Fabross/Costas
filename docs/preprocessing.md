@@ -2,6 +2,18 @@
 
 The sets of functions here help from the perspective of preprocessing, complementing the module of data gathering and features extraction.
 
+## high_photometric_errors(data)
+
+Delete high photometric errors in the light curve's magnitudes.
+
+#### Args:
+`data(np.narray)`: The light curve's magnitudes to analyze.
+
+#### Returns:
+`np.narray`: Light curve's magnitudes with low photometric errors.
+
+-------------
+
 ## outliers_iqr(ys)
 
 Delete atypical data.
