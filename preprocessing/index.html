@@ -50,11 +50,11 @@
                                 <a href="..">Home</a>
                             </li>
                             <li class="dropdown active">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Detection module <b class="caret"></b></a>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Detection <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     
 <li >
-    <a href="../gathering/">Gathering data</a>
+    <a href="../datadq/">Data acquisition</a>
 </li>
                                     
 <li class="active">
@@ -71,7 +71,7 @@
                                 </ul>
                             </li>
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Classification module <b class="caret"></b></a>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Classification <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     
 <li >
@@ -99,7 +99,7 @@
                             </a>
                         </li>
                             <li >
-                                <a rel="next" href="../gathering/">
+                                <a rel="next" href="../datadq/">
                                     <i class="fa fa-arrow-left"></i> Previous
                                 </a>
                             </li>
@@ -120,58 +120,53 @@
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
         <li class="main active"><a href="#preprocessing-module">Preprocessing Module</a></li>
-            <li><a href="#outliers_iqrys">outliers_iqr(ys)</a></li>
             <li><a href="#high_photometric_errorsdata">high_photometric_errors(data)</a></li>
+            <li><a href="#outliers_iqrys">outliers_iqr(ys)</a></li>
             <li><a href="#preprocessingdata-aperture">preprocessing(data, aperture)</a></li>
-            <li><a href="#grade_filterdf-grades-mags">grade_filter(df, grades, mags)</a></li>
-            <li><a href="#sorttup">Sort(tup)</a></li>
-            <li><a href="#graphdata-path-title">graph(data, path, title)</a></li>
+            <li><a href="#grade_filterdata-grades">grade_filter(data, grades)</a></li>
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
 <h1 id="preprocessing-module">Preprocessing Module</h1>
 <p>The sets of functions here help from the perspective of preprocessing, complementing the module of data gathering and features extraction.</p>
-<h2 id="outliers_iqrys">outliers_iqr(ys)</h2>
-<p>Delete atypical data.</p>
-<pre><code class="python">Keyword argument:
-    ys -- the data, np.narray
-</code></pre>
-
 <h2 id="high_photometric_errorsdata">high_photometric_errors(data)</h2>
-<p>Delete high photometric errors and return a np.narray.</p>
-<pre><code class="python">Keyword argument:
-    data -- the data to analyze, np.narray
-</code></pre>
-
+<p>Found high photometric errors in MER,  with <script type="math/tex"> \bar{x} </script> and <script type="math/tex"> \sigma </script> as mean and standard deviation of data array, respectively, based on error limit
+<script type="math/tex; mode=display"> \varepsilon_l =  \bar{x} + 3 \sigma</script>
+and the condition
+<script type="math/tex; mode=display"> x_i \geq \varepsilon_l </script>
+</p>
+<h4 id="args">Args:</h4>
+<p><code>data(np.narray)</code>: MERs to analyze.</p>
+<h4 id="returns">Returns:</h4>
+<p><code>np.narray</code>: MER's index with high photometric errors.</p>
+<hr />
+<h2 id="outliers_iqrys">outliers_iqr(ys)</h2>
+<p>Found magnitudes out of interquartile range (iqr) based on quartile 1 and quartile 3, <script type="math/tex"> q_1 </script> and <script type="math/tex">q_3 </script> respectively, with 
+<script type="math/tex; mode=display"> iqr = q_3-q_1 </script> 
+and condition
+<script type="math/tex; mode=display"> (ys > U_b)\ or \ (ys < L_b)</script>
+where <script type="math/tex">U_b = q_3+ 1.5iqr</script> and <script type="math/tex">L_b = q_1- 1.5iqr</script> are the Upper bound and Lower bound, respectively.</p>
+<h4 id="args_1">Args:</h4>
+<p><code>data(np.narray)</code>: MERs to analyze.</p>
+<h4 id="returns_1">Returns:</h4>
+<p><code>np.narray</code>: MER's index out of interquartile range.</p>
+<hr />
 <h2 id="preprocessingdata-aperture">preprocessing(data, aperture)</h2>
-<p>Preprocess data for an aperture and return a tuple.</p>
-<pre><code class="python">Keyword arguments:
-    data -- the data to analyze, pd.DataFrame
-    aperture -- the aperture index, str
-</code></pre>
-
-<h2 id="grade_filterdf-grades-mags">grade_filter(df, grades, mags)</h2>
-<p>Filter the data to preprocess and return a tuple.</p>
-<pre><code class="python">Keyword arguments:
-    df -- the data to analyze, pd.DataFrame
-    grades -- the grades to analyze, list
-    mags -- the magnitudes to analyze, tuple
-</code></pre>
-
-<h2 id="sorttup">Sort(tup)</h2>
-<p>Sort a tuple in descending order and return a tuple.</p>
-<pre><code class="python">Keyword arguments:
-    tup -- tuple to sort, tuple
-</code></pre>
-
-<h2 id="graphdata-path-title">graph(data, path, title)</h2>
-<p>Graph in a scatter type and save to a folder as title.png.</p>
-<pre><code class="python">Keyword arguments:
-    data -- the data to graph, tuple
-    path -- the path to save, str
-    title -- the graph title, str
-</code></pre></div>
+<p>Analyze light curve's data with specific aperture, executing high_photometric_errors and outliers_iqr, filtering all the don't wanted values.</p>
+<h4 id="args_2">Args:</h4>
+<p><code>data(pd.DataFrame)</code>: The data to analyze, like the returning example shown in <a href="../datadq/">parser(data)</a>.</p>
+<p><code>aperture(str)</code>: The index to analyze MAG_i, with <script type="math/tex"> i=0,1,2,3</script>.</p>
+<h4 id="returns_2">Returns:</h4>
+<p><code>tuple</code>: HJD and MAG_i values associated.</p>
+<hr />
+<h2 id="grade_filterdata-grades">grade_filter(data, grades)</h2>
+<p>Found and return all the values in light curve's data that has a GRADE parameter in grades set.</p>
+<h4 id="args_3">Args:</h4>
+<p><code>data(pd.DataFrame)</code>: The data to analyze, like the returning example shown in <a href="../datadq/">parser(data)</a>.</p>
+<p><code>grades(list of str)</code>: Some combination (or all) of A,B,C,D.</p>
+<h4 id="returns_3">Returns:</h4>
+<p><code>tuple</code>: Data filtered containing only values with GRADE specified in grades.</p></div>
         </div>
 
         <footer class="col-md-12">
@@ -184,6 +179,7 @@
                 shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
         </script>
         <script src="../js/base.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" defer></script>
         <script src="../search/main.js" defer></script>
 
         <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">

@@ -8,7 +8,7 @@
         <meta name="author" content="wow">
         
         <link rel="shortcut icon" href="../img/favicon.ico">
-        <title>Gathering data - Costas</title>
+        <title>Data acquisition - Costas</title>
         <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../css/font-awesome.min.css" rel="stylesheet">
         <link href="../css/base.css" rel="stylesheet">
@@ -50,11 +50,11 @@
                                 <a href="..">Home</a>
                             </li>
                             <li class="dropdown active">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Detection module <b class="caret"></b></a>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Detection <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     
 <li class="active">
-    <a href="./">Gathering data</a>
+    <a href="./">Data acquisition</a>
 </li>
                                     
 <li >
@@ -71,7 +71,7 @@
                                 </ul>
                             </li>
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Classification module <b class="caret"></b></a>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Classification <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     
 <li >
@@ -109,7 +109,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="https://github.com/csrg-utfsm/Costas/edit/master/docs/gathering.md"><i class="fa fa-github"></i> Edit on GitHub</a>
+                                <a href="https://github.com/csrg-utfsm/Costas/edit/master/docs/datadq.md"><i class="fa fa-github"></i> Edit on GitHub</a>
                             </li>
                     </ul>
                 </div>
@@ -119,40 +119,87 @@
         <div class="container">
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
-        <li class="main active"><a href="#data-gathering-module">Data Gathering Module</a></li>
-            <li><a href="#cutdata">cut(data)</a></li>
+        <li class="main active"><a href="#data-acquisition-module">Data Acquisition Module</a></li>
             <li><a href="#parserdata">parser(data)</a></li>
-            <li><a href="#grades">grades():</a></li>
-            <li><a href="#mags">mags():</a></li>
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<h1 id="data-gathering-module">Data Gathering Module</h1>
+<h1 id="data-acquisition-module">Data Acquisition Module</h1>
 <p>Here are found the functions that help to gather the data from the source.</p>
-<h2 id="cutdata">cut(data)</h2>
-<p>Cut the data by a pattern defined and return a tuple.</p>
-<pre><code class="python">Keyword arguments:
-    data -- the data to cut, list
-</code></pre>
-
+<hr />
 <h2 id="parserdata">parser(data)</h2>
-<p>Transform data from source txt to an structure and return a pd.DataFrame.</p>
-<pre><code class="python">Keyword arguments:
-    data -- the data to transform, list
+<p>It filters the input list of strings with a pattern adjusted to the ASAS format</p>
+<pre><code class="txt">'#     HJD      MAG_1  MAG_0  MAG_2  MAG_3  MAG_4    MER_1 MER_0 MER_2 MER_3 MER_4 GRADE FRAME'
 </code></pre>
 
-<h2 id="grades">grades():</h2>
-<p>Ask for grades to keyboard input and return a list with the keyboard input.</p>
-<pre><code class="python">Keyword input form:
-    A,...,D -- the grades that are required to analyze.
+<p>saving all the values found to a structure, with the right ascension and declination, that is converted to a pd.DataFrame and returned.</p>
+<h4 id="args">Args:</h4>
+<p><code>data(list)</code>: The list of strings of the text in a ASAS register.</p>
+<h4 id="returns">Returns:</h4>
+<p><code>pd.DataFrame</code>: The light curve's data information: DEC, FRAME,GRADE, HJD, MAG_0, MAG_1, MAG_2, MAG_3, MAG_4, MER_0, MER_1, MER_2, MER_3, MER_4 and RA.</p>
+<h4 id="example">Example:</h4>
+<p>The input data:</p>
+<pre><code class="python">[ '#nskip_4= 0\n',
+ '#ra=   17.000018  17:00:00.1\n',
+ '#dec= -24.121600 -24:07:17.8\n',
+ '#     HJD      MAG_1  MAG_0  MAG_2  MAG_3  MAG_4    MER_1 MER_0 MER_2 MER_3 MER_4 GRADE FRAME\n',
+ '   2140.48752 12.253 12.299 12.194 12.162 12.187    0.020 0.038 0.017 0.018 0.021  A 30120\n',
+ '   2384.87500 11.893 11.977 11.846 11.806 11.814    0.018 0.034 0.019 0.021 0.024  A 773\n',
+ '   2385.89474 11.916 12.083 11.843 11.807 11.784    0.034 0.057 0.032 0.034 0.040  D 984\n']
 </code></pre>
 
-<h2 id="mags">mags():</h2>
-<p>Ask for magnitudes to keyboard input and return a tuple.</p>
-<pre><code class="python">Keyword input form:
-    A,...,D -- the grades that are required to analyze.
-</code></pre></div>
+<p>The return:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th align="center">DEC</th>
+<th align="center">FRAME</th>
+<th align="center">GRADE</th>
+<th align="center">HJD</th>
+<th align="center">...</th>
+<th align="center">MER_3</th>
+<th align="center">MER_4</th>
+<th align="center">RA</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td align="center">-24.121600 -24:07:17.8</td>
+<td align="center">30120.0</td>
+<td align="center">A</td>
+<td align="center">2140.48752</td>
+<td align="center">...</td>
+<td align="center">0.018</td>
+<td align="center">0.021</td>
+<td align="center">17.000018 17:00:00.1</td>
+</tr>
+<tr>
+<td>1</td>
+<td align="center">-24.121600 -24:07:17.8</td>
+<td align="center">773.0</td>
+<td align="center">A</td>
+<td align="center">2384.87500</td>
+<td align="center">...</td>
+<td align="center">0.021</td>
+<td align="center">0.024</td>
+<td align="center">17.000018 17:00:00.1</td>
+</tr>
+<tr>
+<td>2</td>
+<td align="center">-24.121600 -24:07:17.8</td>
+<td align="center">984.0</td>
+<td align="center">D</td>
+<td align="center">2385.89474</td>
+<td align="center">...</td>
+<td align="center">0.034</td>
+<td align="center">0.040</td>
+<td align="center">17.000018 17:00:00.1</td>
+</tr>
+</tbody>
+</table></div>
         </div>
 
         <footer class="col-md-12">
@@ -165,6 +212,7 @@
                 shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
         </script>
         <script src="../js/base.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" defer></script>
         <script src="../search/main.js" defer></script>
 
         <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
