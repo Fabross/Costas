@@ -66,7 +66,7 @@
 </li>
                                     
 <li >
-    <a href="starsclass/">General stars classification</a>
+    <a href="selection/">Selection</a>
 </li>
                                 </ul>
                             </li>
@@ -87,9 +87,6 @@
 </li>
                                 </ul>
                             </li>
-                            <li >
-                                <a href="about/">About</a>
-                            </li>
                         </ul>
 
                     <ul class="nav navbar-nav navbar-right">
@@ -108,9 +105,6 @@
                                     Next <i class="fa fa-arrow-right"></i>
                                 </a>
                             </li>
-                            <li>
-                                <a href="https://github.com/csrg-utfsm/Costas/edit/master/docs/index.md"><i class="fa fa-github"></i> Edit on GitHub</a>
-                            </li>
                     </ul>
                 </div>
             </div>
@@ -119,31 +113,31 @@
         <div class="container">
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
-        <li class="main active"><a href="#welcome-to-costas-library">Welcome to Costas Library</a></li>
+        <li class="main active"><a href="#welcome-to-costas-projects-library">Welcome to Costas project's Library</a></li>
+            <li><a href="#modules">Modules</a></li>
+            <li><a href="#install-with-pip">Install with pip</a></li>
             <li><a href="#commands">Commands</a></li>
-            <li><a href="#project-layout">Project layout</a></li>
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<h1 id="welcome-to-costas-library">Welcome to Costas Library</h1>
-<p>For full documentation visit <a href="https://mkdocs.org">mkdocs.org</a>.</p>
+<h1 id="welcome-to-costas-projects-library">Welcome to Costas project's Library</h1>
+<p>The aim of this library is to support the study and analysis of long-term variable stars; the ones that are characterized by long-term flux variations on time scales of many years or various decades, and small amplitudes in visual flux.</p>
+<h2 id="modules">Modules</h2>
+<p>The modules are divided in 2 large groups: Detection and Classification.</p>
+<h3 id="detection">Detection</h3>
+<p>Here we found the tools for <a href="datadq/">data acquisition</a>, with the objective of parse the light curve's data; <a href="preprocessing/">Preprocessing</a>, where remove non-eligible stars by position and magnitude can be done, also remove outlier values from light curves; <a href="features/">features extraction</a>, wich is usefull for statistics and curve fit; and <a href="selection/">selection</a>, extracting only the long-term variable stars.</p>
+<h3 id="classifications">Classifications</h3>
+<h2 id="install-with-pip">Install with pip</h2>
+<p>To install this package open a terminal and use</p>
+<p><code>pip install _______________&gt;</code></p>
 <h2 id="commands">Commands</h2>
 <ul>
 <li><code>mkdocs new [dir-name]</code> - Create a new project.</li>
 <li><code>mkdocs serve</code> - Start the live-reloading docs server.</li>
 <li><code>mkdocs build</code> - Build the documentation site.</li>
 <li><code>mkdocs help</code> - Print this help message.</li>
-</ul>
-<h2 id="project-layout">Project layout</h2>
-<pre><code>mkdocs.yml    # The configuration file.
-docs/
-    index.md  # The documentation homepage.
-    ...       # Other markdown pages, images and other files.
-</code></pre>
-<p>When <script type="math/tex">a \ne 0</script>, there are two solutions to <script type="math/tex">ax^2 + bx + c = 0</script> and they are
-<script type="math/tex; mode=display">x = {-b \pm \sqrt{b^2-4ac} \over 2a}.</script>
-</p></div>
+</ul></div>
         </div>
 
         <footer class="col-md-12">
@@ -228,5 +222,5 @@ docs/
 
 <!--
 MkDocs version : 1.0.4
-Build Date UTC : 2019-01-17 17:59:13
+Build Date UTC : 2019-01-17 19:20:35
 -->

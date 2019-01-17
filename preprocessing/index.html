@@ -66,7 +66,7 @@
 </li>
                                     
 <li >
-    <a href="../starsclass/">General stars classification</a>
+    <a href="../selection/">Selection</a>
 </li>
                                 </ul>
                             </li>
@@ -87,9 +87,6 @@
 </li>
                                 </ul>
                             </li>
-                            <li >
-                                <a href="../about/">About</a>
-                            </li>
                         </ul>
 
                     <ul class="nav navbar-nav navbar-right">
@@ -107,9 +104,6 @@
                                 <a rel="prev" href="../features/">
                                     Next <i class="fa fa-arrow-right"></i>
                                 </a>
-                            </li>
-                            <li>
-                                <a href="https://github.com/csrg-utfsm/Costas/edit/master/docs/preprocessing.md"><i class="fa fa-github"></i> Edit on GitHub</a>
                             </li>
                     </ul>
                 </div>
@@ -131,13 +125,13 @@
 <h1 id="preprocessing-module">Preprocessing Module</h1>
 <p>The sets of functions here help from the perspective of preprocessing, complementing the module of data gathering and features extraction.</p>
 <h2 id="high_photometric_errorsdata">high_photometric_errors(data)</h2>
-<p>Found high photometric errors in MER,  with <script type="math/tex"> \bar{x} </script> and <script type="math/tex"> \sigma </script> as mean and standard deviation of data array, respectively, based on error limit
+<p>Found high photometric errors in MER,  with <script type="math/tex"> \bar{x} </script> and <script type="math/tex"> \sigma </script> as mean and standard deviation of MER data array, respectively, based on error limit
 <script type="math/tex; mode=display"> \varepsilon_l =  \bar{x} + 3 \sigma</script>
 and the condition
 <script type="math/tex; mode=display"> x_i \geq \varepsilon_l </script>
 </p>
 <h4 id="args">Args:</h4>
-<p><code>data(np.narray)</code>: MERs to analyze.</p>
+<p><code>data(np.narray)</code>: MER to analyze.</p>
 <h4 id="returns">Returns:</h4>
 <p><code>np.narray</code>: MER's index with high photometric errors.</p>
 <hr />
@@ -148,7 +142,7 @@ and condition
 <script type="math/tex; mode=display"> (ys > U_b)\ or \ (ys < L_b)</script>
 where <script type="math/tex">U_b = q_3+ 1.5iqr</script> and <script type="math/tex">L_b = q_1- 1.5iqr</script> are the Upper bound and Lower bound, respectively.</p>
 <h4 id="args_1">Args:</h4>
-<p><code>data(np.narray)</code>: MERs to analyze.</p>
+<p><code>data(np.narray)</code>: MER to analyze.</p>
 <h4 id="returns_1">Returns:</h4>
 <p><code>np.narray</code>: MER's index out of interquartile range.</p>
 <hr />
