@@ -21,3 +21,4 @@ nav:
       - 'Cross-matching': 'crossmatching.md'
       - 'Dimensional reduction': 'dimred.md'
       - 'Clustering': 'clustering.md'
+theme: material
