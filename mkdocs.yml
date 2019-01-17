@@ -5,8 +5,7 @@ markdown_extensions:
     - mdx_math
 
 site_name: Costas
-repo_url: https://github.com/csrg-utfsm/Costas
-repo_name: 'GitHub'
+#repo_url: https://github.com/csrg-utfsm/Costas
 site_description: 'Long period variable star study.'
 site_author: 'wow'
 copyright: 'so much copyright'
@@ -17,9 +16,8 @@ nav:
       - 'Data acquisition': 'datadq.md'
       - 'Preprocessing': 'preprocessing.md'
       - 'Features extraction': 'features.md'
-      - 'General stars classification': 'starsclass.md'
+      - 'Selection': 'selection.md'
     - Classification:
       - 'Cross-matching': 'crossmatching.md'
       - 'Dimensional reduction': 'dimred.md'
       - 'Clustering': 'clustering.md'
-    - About: about.md

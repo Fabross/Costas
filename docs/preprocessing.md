@@ -4,13 +4,13 @@ The sets of functions here help from the perspective of preprocessing, complemen
 
 ## high_photometric_errors(data)
 
-Found high photometric errors in MER,  with \( \bar{x} \) and \( \sigma \) as mean and standard deviation of data array, respectively, based on error limit
+Found high photometric errors in MER,  with \( \bar{x} \) and \( \sigma \) as mean and standard deviation of MER data array, respectively, based on error limit
 $$ \varepsilon_l =  \bar{x} + 3 \sigma$$
 and the condition
 $$ x_i \geq \varepsilon_l $$
 
 #### Args:
-`data(np.narray)`: MERs to analyze.
+`data(np.narray)`: MER to analyze.
 
 #### Returns:
 `np.narray`: MER's index with high photometric errors.
@@ -26,7 +26,7 @@ $$ (ys > U_b)\ or \ (ys < L_b)$$
 where \(U_b = q_3+ 1.5iqr\) and \(L_b = q_1- 1.5iqr\) are the Upper bound and Lower bound, respectively.
 
 #### Args:
-`data(np.narray)`: MERs to analyze.
+`data(np.narray)`: MER to analyze.
 
 #### Returns:
 `np.narray`: MER's index out of interquartile range.
