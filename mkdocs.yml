@@ -22,3 +22,4 @@ nav:
       - 'Dimensional reduction': 'dimred.md'
       - 'Clustering': 'clustering.md'
 theme: material
+extra_css: [extra.css]

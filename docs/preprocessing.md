@@ -9,10 +9,10 @@ $$ \varepsilon_l =  \bar{x} + 3 \sigma$$
 and the condition
 $$ x_i \geq \varepsilon_l $$
 
-#### Args:
+#### Args
 `data(np.narray)`: MER to analyze.
 
-#### Returns:
+#### Returns
 `np.narray`: MER's index with high photometric errors.
 
 -------------
@@ -25,10 +25,10 @@ and condition
 $$ (ys > U_b)\ or \ (ys < L_b)$$
 where \(U_b = q_3+ 1.5iqr\) and \(L_b = q_1- 1.5iqr\) are the Upper bound and Lower bound, respectively.
 
-#### Args:
+#### Args
 `data(np.narray)`: MER to analyze.
 
-#### Returns:
+#### Returns
 `np.narray`: MER's index out of interquartile range.
 
 -------------
@@ -37,12 +37,12 @@ where \(U_b = q_3+ 1.5iqr\) and \(L_b = q_1- 1.5iqr\) are the Upper bound and Lo
 
 Analyze light curve's data with specific aperture, executing high_photometric_errors and outliers_iqr, filtering all the don't wanted values.
 
-#### Args:
+#### Args
 `data(pd.DataFrame)`: The data to analyze, like the returning example shown in [parser(data)](datadq.md).
 
 `aperture(str)`: The index to analyze MAG_i, with \( i=0,1,2,3\).
 
-#### Returns:
+#### Returns
 `tuple`: HJD and MAG_i values associated.
 
 -------------
@@ -51,10 +51,10 @@ Analyze light curve's data with specific aperture, executing high_photometric_er
 
 Found and return all the values in light curve's data that has a GRADE parameter in grades set.
 
-#### Args:
+#### Args
 `data(pd.DataFrame)`: The data to analyze, like the returning example shown in [parser(data)](datadq.md).
 
 `grades(list of str)`: Some combination (or all) of A,B,C,D.
 
-#### Returns:
+#### Returns
 `tuple`: Data filtered containing only values with GRADE specified in grades.

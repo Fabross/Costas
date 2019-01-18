@@ -12,13 +12,13 @@ It filters the input list of strings with a pattern adjusted to the ASAS format
 ```
 saving all the values found to a structure, with the right ascension and declination, that is converted to a pd.DataFrame and returned.
 
-#### Args:
+#### Args
 `data(list)`: The list of strings of the text in a ASAS register.
 
-#### Returns:
+#### Returns
 `pd.DataFrame`: The light curve's data information: DEC, FRAME,GRADE, HJD, MAG_0, MAG_1, MAG_2, MAG_3, MAG_4, MER_0, MER_1, MER_2, MER_3, MER_4 and RA.
 
-#### Example:
+#### Example
 The input data:
 ```python
 [ '#nskip_4= 0\n',
