@@ -1,0 +1,25 @@
+extra_javascript: 
+    - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML
+
+markdown_extensions:
+    - mdx_math
+
+site_name: Costas
+#repo_url: https://github.com/csrg-utfsm/Costas
+site_description: 'Long period variable star study.'
+site_author: 'wow'
+copyright: 'so much copyright'
+
+nav:
+    - Home: index.md
+    - Detection:
+      - 'Data acquisition': 'datadq.md'
+      - 'Preprocessing': 'preprocessing.md'
+      - 'Features extraction': 'features.md'
+      - 'Selection': 'selection.md'
+    - Classification:
+      - 'Cross-matching': 'crossmatching.md'
+      - 'Dimensional reduction': 'dimred.md'
+      - 'Clustering': 'clustering.md'
+theme: material
+extra_css: [extra.css]
