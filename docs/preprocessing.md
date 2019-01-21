@@ -33,7 +33,7 @@ where \(U_b = q_3+ 1.5iqr\) and \(L_b = q_1- 1.5iqr\) are the Upper bound and Lo
 
 -------------
 
-## preprocessing(data,aperture)
+## preprocessing(data, aperture)
 
 Analyze light curve's data with specific aperture, executing high_photometric_errors and outliers_iqr, filtering all the don't wanted values.
 
