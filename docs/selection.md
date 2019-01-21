@@ -1,4 +1,4 @@
-#Selection Module
+#Filter Module
 
 There are functions to help to select the wanted data.
 
