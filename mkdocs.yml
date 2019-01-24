@@ -16,7 +16,7 @@ nav:
       - 'Data acquisition': 'datadq.md'
       - 'Preprocessing': 'preprocessing.md'
       - 'Features extraction': 'features.md'
-      - 'Filter': 'selection.md'
+      - 'Filter': 'filter.md'
     - Labeling:
       - 'Cross-matching': 'crossmatching.md'
       - 'Dimensional reduction': 'dimred.md'
