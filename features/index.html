@@ -286,8 +286,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#get_qpdata" title="get_Qp(data)" class="md-nav__link">
-    get_Qp(data)
+  <a href="#get_ra_decdata" title="get_ra_dec(data)" class="md-nav__link">
+    get_ra_dec(data)
   </a>
   
     <nav class="md-nav">
@@ -302,33 +302,6 @@
         
           <li class="md-nav__item">
   <a href="#returns_1" title="Returns" class="md-nav__link">
-    Returns
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#get_ra_decdata" title="get_ra_dec(data)" class="md-nav__link">
-    get_ra_dec(data)
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#args_2" title="Args" class="md-nav__link">
-    Args
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#returns_2" title="Returns" class="md-nav__link">
     Returns
   </a>
   
@@ -356,8 +329,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../selection/" title="Selection" class="md-nav__link">
-      Selection
+    <a href="../filter/" title="Filter" class="md-nav__link">
+      Filter
     </a>
   </li>
 
@@ -377,11 +350,11 @@
       <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
     
     <label class="md-nav__link" for="nav-3">
-      Classification
+      Labeling
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
       <label class="md-nav__title" for="nav-3">
-        Classification
+        Labeling
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -475,8 +448,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#get_qpdata" title="get_Qp(data)" class="md-nav__link">
-    get_Qp(data)
+  <a href="#get_ra_decdata" title="get_ra_dec(data)" class="md-nav__link">
+    get_ra_dec(data)
   </a>
   
     <nav class="md-nav">
@@ -491,33 +464,6 @@
         
           <li class="md-nav__item">
   <a href="#returns_1" title="Returns" class="md-nav__link">
-    Returns
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#get_ra_decdata" title="get_ra_dec(data)" class="md-nav__link">
-    get_ra_dec(data)
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#args_2" title="Args" class="md-nav__link">
-    Args
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#returns_2" title="Returns" class="md-nav__link">
     Returns
   </a>
   
@@ -570,21 +516,25 @@ are the magnitude, linear fit and parabolic fit standard deviation for each one.
 <h4 id="returns">Returns</h4>
 <p><code>list</code>: Q1', C1, Q2' and C2, respectively.</p>
 <hr />
-<h2 id="get_qpdata">get_Qp(data)</h2>
-<p>Obtain parameters <script type="math/tex"> Q_1 </script> and <script type="math/tex"> Q_2 </script> based on 
-<script type="math/tex; mode=display"> Q_1 = Q_1' - \bar{Q}_c </script>
-<script type="math/tex; mode=display"> Q_2 = Q_2' - \bar{Q}_c </script>
-with <script type="math/tex"> c </script> the field where the star being analyze belongs.</p>
-<h4 id="args_1">Args</h4>
-<p><code>data(pd.DataFrame)</code>: The light curve's data to analyze with columns Qp1 and Qp2.</p>
-<h4 id="returns_1">Returns</h4>
-<p><code>data(pd.DataFrame)</code>: The data with columns Q1 and Q2.</p>
-<hr />
+<!-- ## get_Q(data) [SOON]
+Obtain parameters \( Q_1 \) and \( Q_2 \) based on 
+$$ Q_1 = Q_1' - \bar{Q}_c $$
+$$ Q_2 = Q_2' - \bar{Q}_c $$
+with \( c \) the field where the star being analyze belongs.
+#### Args
+`data(astropy.table.table.Table)`: The light curve's data to analyze with columns Qp1 and Qp2.
+
+#### Returns
+`data(astropy.table.table.Table)`: The data with columns Q1 and Q2.
+
+------------------------------------------
+-->
+
 <h2 id="get_ra_decdata">get_ra_dec(data)</h2>
 <p>get the right ascension and declination of the input data.</p>
-<h4 id="args_2">Args</h4>
-<p><code>data(pd.DataFrame)</code>: The light curve's data to analyze.</p>
-<h4 id="returns_2">Returns</h4>
+<h4 id="args_1">Args</h4>
+<p><code>data(astropy.table.table.Table)</code>: The data to analyze.</p>
+<h4 id="returns_1">Returns</h4>
 <p><code>tuple</code>: The RA and DEC of data, respectively.</p>
                 
                   
@@ -621,13 +571,13 @@ with <script type="math/tex"> c </script> the field where the star being analyze
           </a>
         
         
-          <a href="../selection/" title="Selection" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../filter/" title="Filter" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Selection
+                Filter
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">

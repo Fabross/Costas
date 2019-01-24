@@ -309,8 +309,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../selection/" title="Selection" class="md-nav__link">
-      Selection
+    <a href="../filter/" title="Filter" class="md-nav__link">
+      Filter
     </a>
   </li>
 
@@ -330,11 +330,11 @@
       <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
     
     <label class="md-nav__link" for="nav-3">
-      Classification
+      Labeling
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
       <label class="md-nav__title" for="nav-3">
-        Classification
+        Labeling
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -459,14 +459,14 @@
 <pre><code class="txt">'#     HJD      MAG_1  MAG_0  MAG_2  MAG_3  MAG_4    MER_1 MER_0 MER_2 MER_3 MER_4 GRADE FRAME'
 </code></pre>
 
-<p>saving all the values found to a structure, with the right ascension and declination, that is converted to a pd.DataFrame and returned.</p>
+<p>saving all the values found to a structure, with the right ascension and declination, that is converted to a table and returned.</p>
 <h4 id="args">Args</h4>
 <p><code>data(list)</code>: The list of strings of the text in a ASAS register.</p>
 <h4 id="returns">Returns</h4>
-<p><code>pd.DataFrame</code>: The light curve's data information: DEC, FRAME,GRADE, HJD, MAG_0, MAG_1, MAG_2, MAG_3, MAG_4, MER_0, MER_1, MER_2, MER_3, MER_4 and RA.</p>
+<p><code>astropy.table.table.Table</code>: The light curve's data information: DEC, FRAME,GRADE, HJD, MAG_0, MAG_1, MAG_2, MAG_3, MAG_4, MER_0, MER_1, MER_2, MER_3, MER_4 and RA.</p>
 <h4 id="example">Example</h4>
 <p>The input data:</p>
-<pre><code class="python">[ '#nskip_4= 0\n',
+<pre><code class="python">data = [ '#nskip_4= 0\n',
  '#ra=   17.000018  17:00:00.1\n',
  '#dec= -24.121600 -24:07:17.8\n',
  '#     HJD      MAG_1  MAG_0  MAG_2  MAG_3  MAG_4    MER_1 MER_0 MER_2 MER_3 MER_4 GRADE FRAME\n',
@@ -479,50 +479,76 @@
 <table>
 <thead>
 <tr>
-<th></th>
-<th align="center">DEC</th>
-<th align="center">FRAME</th>
-<th align="center">GRADE</th>
 <th align="center">HJD</th>
+<th align="center">MAG_1</th>
+<th align="center">MAG_0</th>
+<th align="center">MAG_2</th>
+<th align="center">MAG_3</th>
+<th align="center">MAG_4</th>
 <th align="center">...</th>
+<th align="center">MER_2</th>
 <th align="center">MER_3</th>
 <th align="center">MER_4</th>
-<th align="center">RA</th>
+<th align="center">GRADE</th>
+<th align="center">FRAME</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>0</td>
-<td align="center">-24.121600 -24:07:17.8</td>
-<td align="center">30120.0</td>
-<td align="center">A</td>
-<td align="center">2140.48752</td>
+<td align="center">float64</td>
+<td align="center">float64</td>
+<td align="center">float64</td>
+<td align="center">float64</td>
+<td align="center">float64</td>
+<td align="center">float64</td>
 <td align="center">...</td>
+<td align="center">float64</td>
+<td align="center">float64</td>
+<td align="center">float64</td>
+<td align="center">str1</td>
+<td align="center">int64</td>
+</tr>
+<tr>
+<td align="center">2140.48752</td>
+<td align="center">12.253</td>
+<td align="center">12.299</td>
+<td align="center">12.194</td>
+<td align="center">12.162</td>
+<td align="center">12.187</td>
+<td align="center">...</td>
+<td align="center">0.017</td>
 <td align="center">0.018</td>
 <td align="center">0.021</td>
-<td align="center">17.000018 17:00:00.1</td>
+<td align="center">A</td>
+<td align="center">30120</td>
 </tr>
 <tr>
-<td>1</td>
-<td align="center">-24.121600 -24:07:17.8</td>
-<td align="center">773.0</td>
-<td align="center">A</td>
 <td align="center">2384.87500</td>
+<td align="center">11.893</td>
+<td align="center">11.977</td>
+<td align="center">11.846</td>
+<td align="center">11.806</td>
+<td align="center">11.814</td>
 <td align="center">...</td>
+<td align="center">0.019</td>
 <td align="center">0.021</td>
 <td align="center">0.024</td>
-<td align="center">17.000018 17:00:00.1</td>
+<td align="center">A</td>
+<td align="center">773</td>
 </tr>
 <tr>
-<td>2</td>
-<td align="center">-24.121600 -24:07:17.8</td>
-<td align="center">984.0</td>
-<td align="center">D</td>
 <td align="center">2385.89474</td>
+<td align="center">11.916</td>
+<td align="center">12.083</td>
+<td align="center">11.843</td>
+<td align="center">11.807</td>
+<td align="center">11.784</td>
 <td align="center">...</td>
+<td align="center">0.032</td>
 <td align="center">0.034</td>
 <td align="center">0.040</td>
-<td align="center">17.000018 17:00:00.1</td>
+<td align="center">D</td>
+<td align="center">984</td>
 </tr>
 </tbody>
 </table>

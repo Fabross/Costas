@@ -247,8 +247,8 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#high_photometric_errorsdata" title="high_photometric_errors(data)" class="md-nav__link">
-    high_photometric_errors(data)
+  <a href="#high_photometric_errorsdata-aperture0" title="high_photometric_errors(data, aperture='0')" class="md-nav__link">
+    high_photometric_errors(data, aperture='0')
   </a>
   
     <nav class="md-nav">
@@ -327,33 +327,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#grade_filterdata-grades" title="grade_filter(data, grades)" class="md-nav__link">
-    grade_filter(data, grades)
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#args_3" title="Args" class="md-nav__link">
-    Args
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#returns_3" title="Returns" class="md-nav__link">
-    Returns
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
       
       
       
@@ -383,8 +356,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../selection/" title="Selection" class="md-nav__link">
-      Selection
+    <a href="../filter/" title="Filter" class="md-nav__link">
+      Filter
     </a>
   </li>
 
@@ -404,11 +377,11 @@
       <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
     
     <label class="md-nav__link" for="nav-3">
-      Classification
+      Labeling
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
       <label class="md-nav__title" for="nav-3">
-        Classification
+        Labeling
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -475,8 +448,8 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#high_photometric_errorsdata" title="high_photometric_errors(data)" class="md-nav__link">
-    high_photometric_errors(data)
+  <a href="#high_photometric_errorsdata-aperture0" title="high_photometric_errors(data, aperture='0')" class="md-nav__link">
+    high_photometric_errors(data, aperture='0')
   </a>
   
     <nav class="md-nav">
@@ -555,33 +528,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#grade_filterdata-grades" title="grade_filter(data, grades)" class="md-nav__link">
-    grade_filter(data, grades)
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#args_3" title="Args" class="md-nav__link">
-    Args
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#returns_3" title="Returns" class="md-nav__link">
-    Returns
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
       
       
       
@@ -601,16 +547,17 @@
                 
                 <h1 id="preprocessing-module">Preprocessing Module</h1>
 <p>The sets of functions here help from the perspective of preprocessing, complementing the module of data gathering and features extraction.</p>
-<h2 id="high_photometric_errorsdata">high_photometric_errors(data)</h2>
+<h2 id="high_photometric_errorsdata-aperture0">high_photometric_errors(data, aperture='0')</h2>
 <p>Found high photometric errors in MER,  with <script type="math/tex"> \bar{x} </script> and <script type="math/tex"> \sigma </script> as mean and standard deviation of MER data array, respectively, based on error limit
 <script type="math/tex; mode=display"> \varepsilon_l =  \bar{x} + 3 \sigma</script>
 and the condition
 <script type="math/tex; mode=display"> x_i \geq \varepsilon_l </script>
 </p>
 <h4 id="args">Args</h4>
-<p><code>data(np.narray)</code>: MER to analyze.</p>
+<p><code>data({astropy.table.table.Table, np.array, astropy.table.column.Column})</code>: MER's Data to analyze.</p>
+<p><code>aperture(str)</code>: Specific aperture in data to analyze, default='0'.</p>
 <h4 id="returns">Returns</h4>
-<p><code>np.narray</code>: MER's index with high photometric errors.</p>
+<p><code>astropy.table.table.Table</code>: Table with corresponding MER aperture analyzed.</p>
 <hr />
 <h2 id="outliers_iqrys">outliers_iqr(ys)</h2>
 <p>Found magnitudes out of interquartile range (iqr) based on quartile 1 and quartile 3, <script type="math/tex"> q_1 </script> and <script type="math/tex">q_3 </script> respectively, with 
@@ -619,25 +566,18 @@ and condition
 <script type="math/tex; mode=display"> (ys > U_b)\ or \ (ys < L_b)</script>
 where <script type="math/tex">U_b = q_3+ 1.5iqr</script> and <script type="math/tex">L_b = q_1- 1.5iqr</script> are the Upper bound and Lower bound, respectively.</p>
 <h4 id="args_1">Args</h4>
-<p><code>data(np.narray)</code>: MER to analyze.</p>
+<p><code>data({astropy.table.table.Table, np.array, astropy.table.column.Column})</code>: MER's Data to analyze.</p>
+<p><code>aperture(str)='0'</code>: Specific aperture in data to analyze.</p>
 <h4 id="returns_1">Returns</h4>
-<p><code>np.narray</code>: MER's index out of interquartile range.</p>
+<p><code>astropy.table.table.Table</code>: Table with corresponding MER aperture analyzed.</p>
 <hr />
 <h2 id="preprocessingdata-aperture">preprocessing(data, aperture)</h2>
 <p>Analyze light curve's data with specific aperture, executing high_photometric_errors and outliers_iqr, filtering all the don't wanted values.</p>
 <h4 id="args_2">Args</h4>
-<p><code>data(pd.DataFrame)</code>: The data to analyze, like the returning example shown in <a href="../datadq/">parser(data)</a>.</p>
-<p><code>aperture(str)</code>: The index to analyze MAG_i, with <script type="math/tex"> i=0,1,2,3</script>.</p>
+<p><code>data(astropy.table.table.Table)</code>: Data table to analyze.</p>
+<p><code>aperture(str)</code>: Specific aperture to analyze in data.</p>
 <h4 id="returns_2">Returns</h4>
-<p><code>tuple</code>: HJD and MAG_i values associated.</p>
-<hr />
-<h2 id="grade_filterdata-grades">grade_filter(data, grades)</h2>
-<p>Found and return all the values in light curve's data that has a GRADE parameter in grades set.</p>
-<h4 id="args_3">Args</h4>
-<p><code>data(pd.DataFrame)</code>: The data to analyze, like the returning example shown in <a href="../datadq/">parser(data)</a>.</p>
-<p><code>grades(list of str)</code>: Some combination (or all) of A,B,C,D.</p>
-<h4 id="returns_3">Returns</h4>
-<p><code>tuple</code>: Data filtered containing only values with GRADE specified in grades.</p>
+<p><code>astropy.table.table.Table</code>: Table with the specific aperture's data analyzed.</p>
                 
                   
                 
