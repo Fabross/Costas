@@ -7,7 +7,6 @@ Authors:
 
 from scipy.optimize import curve_fit
 import numpy as np
-import pandas as pd
 
 def lineal_fit(t,a,b):
     """Lineal fit to data and return param m np.narray.
@@ -39,8 +38,8 @@ def get_statistics(t,y):
     """Obtain and return Q1', C1, Q2' and C2.
 
     Keyword arguments:
-    t -- A np.narray
-    y -- A np.narray
+    t -- A np.narray, astropy.table.column
+    y -- A np.narray, astropy.table.column
     
     """
     # Desviacion estandar y
@@ -69,11 +68,9 @@ def get_ra_dec(data):
     DEC is the Declination.
 
     Keyword arguments:
-    data -- the data to analyze, pd.DataFrame
+    data -- the data to analyze, astropy.table
     
     """
-    ra= data.iloc[0]["RA"].values[0]
-    ra= ra.split(" ")
-    dec= data.iloc[0]["DEC"].values[0]
-    dec= dec.split(" ")
-    return ra[0],dec[0]
+    ra= data['RA'][0].split(" ")[0]
+    dec= data['DEC'][0].split(" ")[0]
+    return ra,dec

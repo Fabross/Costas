@@ -1,4 +1,4 @@
-"""Data gathering module.
+"""Data acquisition module.
 
 The sets of functions here help to gather the data from the source.
 
@@ -7,7 +7,7 @@ Authors:
 
 import re
 import numpy as np
-import pandas as pd
+from astropy.table import Table,vstack,join
 
 def cut(c):
     """Cut the data by a patron defined and return a tuple.
@@ -29,7 +29,7 @@ def cut(c):
     return np.array(data),head
 
 def parser(data):
-    """Transform data from source txt to an structure and return a pd.DataFrame.
+    """Transform data from source txt to an structure and return a astropy.table.
 
     Keyword arguments:
     data -- the data to transform, list
@@ -40,6 +40,7 @@ def parser(data):
     gamma = []
     flag = 0
     flag1 = False
+    typ= ('f8','f8','f8','f8','f8','f8','f8','f8','f8','f8','f8',np.str,'f8',np.str,np.str)
     for i in range(len(data)):
         flag1= re.findall("\# ######### LIGHT ",data[i])
         if flag1:
@@ -66,18 +67,20 @@ def parser(data):
                 if not next_line:
                     reg, col= cut(c)
                     if flag == 0:
-                        df = pd.DataFrame(reg,columns=col)
-                        df["RA"] = np.array(alpha)
-                        df["DEC"] = np.array(gamma)
+                        col[0].append('RA')
+                        col[0].append('DEC')
+                        reg = np.c_[reg,np.array(alpha),np.array(gamma)]
+                        t = Table(reg, names=tuple(col[0]), dtype = typ)
                         c = []
                         alpha = []
                         gamma = []
-                        flag += 1                    
+                        flag += 1
                     else:
-                        df_aux = pd.DataFrame(reg,columns=col)
-                        df_aux["RA"] = np.array(alpha)
-                        df_aux["DEC"] = np.array(gamma)
-                        df = pd.concat([df,df_aux],ignore_index=True)
+                        col[0].append('RA')
+                        col[0].append('DEC')
+                        reg = np.c_[reg,np.array(alpha),np.array(gamma)]
+                        t_aux = Table(reg, names=tuple(col[0]), dtype = typ)
+                        t = vstack([t, t_aux])
                         c = []
                         alpha = []
                         gamma = []
@@ -85,20 +88,18 @@ def parser(data):
             except:
                 reg, col = cut(c)
                 if flag == 0:
-                    df = pd.DataFrame(reg,columns=col)
-                    df["RA"] = np.array(alpha)
-                    df["DEC"] = np.array(gamma)
+                    col[0].append('RA')
+                    col[0].append('DEC')
+                    reg = np.c_[reg,np.array(alpha),np.array(gamma)]
+                    t = Table(reg, names=tuple(col[0]), dtype = typ)
                     c = []
                     alpha = []
                     gamma = []
                     flag += 1   
-                else:    
-                    df_aux = pd.DataFrame(reg,columns=col)
-                    df_aux["RA"] = np.array(alpha)
-                    df_aux["DEC"] = np.array(gamma)
-                    df = pd.concat([df,df_aux],ignore_index=True)
-
-    col[0].remove('GRADE')
-    df[col[0]] = df[col[0]].astype(float)
-
-    return df
+                else:
+                    col[0].append('RA')
+                    col[0].append('DEC')
+                    reg = np.c_[reg,np.array(alpha),np.array(gamma)]
+                    t_aux = Table(reg, names=tuple(col[0]), dtype = typ)
+                    t = vstack([t, t_aux])
+    file.close()
