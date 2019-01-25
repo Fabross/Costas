@@ -28,7 +28,7 @@ def cut(c):
             data.append(patron.split(i))
     return np.array(data),head
 
-def parser(data,n=10):
+def parser(data):
     """Transform data from source txt to an structure and return a astropy.table.
 
     Keyword arguments:
@@ -102,4 +102,4 @@ def parser(data,n=10):
                     reg = np.c_[reg,np.array(alpha),np.array(gamma)]
                     t_aux = Table(reg, names=tuple(col[0]), dtype = typ)
                     t = vstack([t, t_aux])
-    return t if len(t)>=n else t[:0].copy()
+    return t
