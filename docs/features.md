@@ -32,24 +32,25 @@ are the magnitude, linear fit and parabolic fit standard deviation for each one.
 
 ------------------------------------------
 
-## get_Qp(data)
+<!-- ## get_Q(data) [SOON]
 Obtain parameters \( Q_1 \) and \( Q_2 \) based on 
 $$ Q_1 = Q_1' - \bar{Q}_c $$
 $$ Q_2 = Q_2' - \bar{Q}_c $$
 with \( c \) the field where the star being analyze belongs.
 #### Args
-`data(pd.DataFrame)`: The light curve's data to analyze with columns Qp1 and Qp2.
+`data(astropy.table.table.Table)`: The light curve's data to analyze with columns Qp1 and Qp2.
 
 #### Returns
-`data(pd.DataFrame)`: The data with columns Q1 and Q2.
+`data(astropy.table.table.Table)`: The data with columns Q1 and Q2.
 
 ------------------------------------------
+-->
 
 ## get_ra_dec(data)
 get the right ascension and declination of the input data.
 
 #### Args
-`data(pd.DataFrame)`: The light curve's data to analyze.
+`data(astropy.table.table.Table)`: The data to analyze.
 
 #### Returns
 `tuple`: The RA and DEC of data, respectively.

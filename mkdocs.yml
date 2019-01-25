@@ -9,14 +9,14 @@ site_name: Costas
 site_description: 'Long period variable star study.'
 site_author: 'wow'
 copyright: 'so much copyright'
-
+version: '0.3.1'
 nav:
     - Home: index.md
     - Detection:
       - 'Data acquisition': 'datadq.md'
       - 'Preprocessing': 'preprocessing.md'
       - 'Features extraction': 'features.md'
-      - 'Filter': 'selection.md'
+      - 'Filter': 'filter.md'
     - Labeling:
       - 'Cross-matching': 'crossmatching.md'
       - 'Dimensional reduction': 'dimred.md'
