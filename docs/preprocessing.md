@@ -10,7 +10,7 @@ and the condition
 $$ x_i \geq \varepsilon_l $$
 
 #### Args
-`data({astropy.table.table.Table, np.array, astropy.table.column.Column})`: MER's Data to analyze.
+`data({astropy.table.table.Table, np.array, astropy.table.column.Column})`: MER's Data or table to analyze.
 
 `aperture(str)`: Specific aperture in data to analyze, default='0'.
 
@@ -28,12 +28,12 @@ $$ (ys > U_b)\ or \ (ys < L_b)$$
 where \(U_b = q_3+ 1.5iqr\) and \(L_b = q_1- 1.5iqr\) are the Upper bound and Lower bound, respectively.
 
 #### Args
-`data({astropy.table.table.Table, np.array, astropy.table.column.Column})`: MER's Data to analyze.
+`data({astropy.table.table.Table, np.array, astropy.table.column.Column})`: MAG's Data or table to analyze.
 
-`aperture(str)='0'`: Specific aperture in data to analyze.
+`aperture(str)`: Specific aperture in data to analyze, default = '0'.
 
 #### Returns
-`astropy.table.table.Table`: Table with corresponding MER aperture analyzed.
+`astropy.table.table.Table`: Table with corresponding MAG aperture analyzed.
 
 -------------
 
