@@ -1,6 +1,6 @@
 #ndata= 3 --------> cantidad de puntos en total en el dataset
 #dataset= 1 ; 1 F0104-08_290
-	  |   |	|-----> El campo
+	      |   |    ^-----> El campo
           |   ^--------> Cuenta entradas al catalogo dentro del mismo campo
           ^------------> Identificador secuencial de dataset
 #desig= 010645-0128.9 -----> Coordenadas ecuatoriales: hhmmss+ddmm.m
@@ -22,11 +22,11 @@
 #cmag_4= 13.176
 #cmer_4=  0.253
 #nskip_4= 0
-	    v--------------------> hours
-            |        v-----------> hhmmss.s
+	        v--------------------> hours
+            |        v-----------> hhmmss.s - hours, minutes, seconds
 #ra=    1.112549  01:06:45.2 ----\ Promedio de coordenadas para
 #dec=  -1.481682 -1:28:54.1  ----/ todas las mediciones
-            |        ^-----------> hhmmss.s
+            |        ^-----------> hhmmss.s - degrees, arcminutes, arcseconds
             ^--------------------> Degrees
 #--------------------Rows--------------------------
 #
