@@ -7,7 +7,7 @@ Authors:
 
 import re
 import numpy as np
-from astropy.table import Table,vstack,join
+from astropy.table import Table,vstack
 
 def cut(c):
     """Cut the data by a patron defined and return a tuple.

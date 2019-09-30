@@ -8,7 +8,7 @@ Authors:
 
 import numpy as np
 import matplotlib.pyplot as plt
-from astropy.table import Table,join
+from astropy.table import Table
         
 def outliers_iqr(data_col, aperture='0'):
     """Delete atypical data and return a astropy.table.
