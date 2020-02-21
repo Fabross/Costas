@@ -6,13 +6,14 @@ Long period variable star study
 
     For Virtualenv:
     ```shell
-    cd ${ProjectPath}/Local
+    cd ${ProjectPath}/local
     virtualenv -p python3.8 venv_Costas
     ```
 
 * Organization:
     * github_pages: Documentation pages.
     * library: All files regarding to Costas library.
+    * local: personal and large files.
     * notebooks: Jupyter notebooks.
     * others: all files not regarding to the previous folders.
     * python_files: project's python files.
