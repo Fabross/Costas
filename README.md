@@ -6,7 +6,7 @@ Long period variable star study
 
     For Virtualenv:
     ```shell
-    cd ${ProjectPath}/Local
+    cd ${ProjectPath}/local
     virtualenv -p python3.8 venv_Costas
     ```
 
